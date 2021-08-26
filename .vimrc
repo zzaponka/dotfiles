@@ -1,10 +1,25 @@
 " General setup
+" no compatibility with original vi
 set nocompatible
-filetype plugin on
+" required by vundle
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'valloric/youcompleteme'
+Bundle 'badwolf'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'preservim/tagbar'
+Plugin 'nathanaelkane/vim-indent-guides'
+
+call vundle#end()
+
+filetype plugin indent on
 syntax on " enable syntax processing
 
 " Pathogen
-execute pathogen#infect()
+" execute pathogen#infect()
 
 " Spaces and tabs
 set autoindent
@@ -14,11 +29,13 @@ set noexpandtab
 set shiftwidth=8
 set list " show non-printed symbols
 " set listchars=tab:>-,space:·,eol:$
-" set listchars=tab:>-,eol:$,trail:·,space:·
-set listchars=tab:>-,eol:$,trail:·
+set listchars=tab:>-,eol:$,trail:·,space:·
+" set listchars=tab:>-,eol:$,trail:·
 filetype indent on " load filetype-specific indent files
+
 " General formatting
 set tw=79
+
 " UI configuration
 set nowrap " do not wrap long lines
 set number " show line numbers
@@ -39,6 +56,9 @@ set hlsearch " highlight matches
 " Editing options
 set hidden  " switch between buffers without saving
 
+" Completion
+set completeopt=menuone
+
 " Key mappings
 let mapleader=","
 nmap <F2> :TagbarToggle<CR>
@@ -56,6 +76,9 @@ let g:neocomplcache_enable_at_startup = 1
 
 " vim indent guides options
 let g:indent_guides_enable_on_vim_startup = 1
+
+" trying deoplete
+let g:deoplete#enable_at_startup = 1
 
 " Mouse scroll enable
 set mouse=a
