@@ -24,9 +24,17 @@ syntax on " enable syntax processing
 " Spaces and tabs
 set autoindent
 set tabstop=8
-set softtabstop=8
-set noexpandtab
-set shiftwidth=8
+
+" Usual Linux kernel indentation style
+" set softtabstop=8
+" set noexpandtab
+" set shiftwidth=8
+
+" Prata C++ book indentation style
+"set softtabstop=4
+"set expandtab
+"set shiftwidth=4
+
 set list " show non-printed symbols
 " set listchars=tab:>-,space:·,eol:$
 set listchars=tab:>-,eol:$,trail:·,space:·
@@ -103,7 +111,6 @@ nmap <C-@>c :vert scs find c <C-R>=expand("<cword>")<CR><CR>
 
 " Status line
 set laststatus=2
-                        " comment to test indentation
 
 " Colors
 highlight ColorColumn ctermbg=245 guibg=#2c2d27
